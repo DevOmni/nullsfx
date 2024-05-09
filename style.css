@@ -1,0 +1,50 @@
+body {
+  font-family: monospace;
+  color: white; background-color: black;
+}
+
+input[type="reset"], input[type="submit"], input[type="search"], button, [role="button"] {
+  cursor: pointer;
+}
+
+ul {
+  flex-direction: column;
+  width: fit-content;
+  border: 1px solid white;
+}
+ul > li {
+  cursor: default;
+  width: fit-content;
+  list-style: none;
+  padding: 1px 2px; margin-top: 2px;
+  border: 1px solid white;
+  font-size: 16px; 
+  transition-duration: .2s;
+  &:hover {
+    font-size: 24px;
+  }
+}
+
+pre {
+  border: 1px solid white;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+#source {
+  border: 1px solid white;
+  padding: 2px;
+  
+}
+span {
+  display: inline-block;
+  border: 1px solid white;
+  width: 80px; height: 30px;
+  text-align: center;
+  margin: 2px;
+}
+
+#keypress {
+  border: 1px solid white;
+  width: 200px; height: 160px;
+}
