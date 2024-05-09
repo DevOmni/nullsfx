@@ -1,10 +1,20 @@
 body {
-  font-family: monospace;
+  font-family: consolas, monospace;
   color: white; background-color: black;
 }
 
-input[type="reset"], input[type="submit"], input[type="search"], button, [role="button"] {
+input[type="reset"], input[type="submit"], input[type="search"], button, [role="button"], a {
   cursor: pointer;
+}
+
+a {
+  color: cyan;
+}
+a:hover {
+  color: yellow;
+}
+a:visited {
+  color: rgb(9, 69, 159);
 }
 
 ul {

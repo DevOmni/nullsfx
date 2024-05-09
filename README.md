@@ -2,6 +2,8 @@
 
 A easy to use lite weight script/lib to play sounds manually or when some even occurs
 
+[live demo↗](https://devomni.github.io/nullsfx/)
+
 ## Docs
 
 ### Creating NullSFX instance

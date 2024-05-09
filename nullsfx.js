@@ -11,7 +11,7 @@ function nullsfx(sfx_list) {
     sfx.setAttribute("controls", "none");
     sfx.volume = 0;
     sfx.load();
-    sfx.play();
+    // sfx.play();
     this.audioEles[key] = sfx;
     
     // console.log('base sfx added ;', key);
