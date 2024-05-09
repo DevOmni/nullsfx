@@ -1,5 +1,5 @@
 function nullsfx(sfx_list) {
-  console.log('nullsfx');
+  // console.log('nullsfx');
 
   this.sfx_list = sfx_list;
 
@@ -11,10 +11,10 @@ function nullsfx(sfx_list) {
     sfx.setAttribute("controls", "none");
     sfx.volume = 0;
     sfx.load();
-    // sfx.play();
+    sfx.play();
     this.audioEles[key] = sfx;
     
-    console.log('base sfx added ;', key);
+    // console.log('base sfx added ;', key);
 
     // TODO: fix remove sfx eventlistener not working
     sfx.addEventListener('ended', handleEnded);
@@ -31,7 +31,7 @@ function nullsfx(sfx_list) {
 }
 
 nullsfx.prototype.init = function() {
-  console.log('init');
+  // console.log('init');
   
   this.targets = document.querySelectorAll('[nsfx]');
   this.targets.forEach((ele) => {
@@ -52,13 +52,12 @@ nullsfx.prototype.init = function() {
 }
 
 nullsfx.prototype.play = function(src, vol=null, e=null) {
-  // if ()
   
   let sfx = this.audioEles[src].cloneNode();
-  console.log('sfx added');
+  // console.log('sfx added');
   sfx.currentTime = 0;
   sfx.volume = parseFloat(vol) ?? 1;
-  console.log(vol, sfx.volume);
+  // console.log(vol, sfx.volume);
   sfx.play();
 
   sfx.addEventListener('ended', handleEnded);
@@ -71,19 +70,10 @@ nullsfx.prototype.play = function(src, vol=null, e=null) {
   }
 }
 
+
 // nullsfx.prototype.parseOptions = function(query="onclick?wasted&vol=0.6") {
 //   // let eve, options, eo;
 //   // eve = ((options = (eo = q.split('?', 1))[1].split('&')) && eo)[0];
 // }
 
 // document.querySelector('button').addEventListener('pointermove')
-
-
-
-// TODO: play sound on particular key press while focused on that element
-
-
-
-
-
-
