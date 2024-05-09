@@ -39,13 +39,13 @@ nullsfx.prototype.init = function() {
     
     // One element can have multiple event drive sfx
     attrVal.split(';').forEach((soundFx) => {
-      let [eve, src] = soundFx.trim().split('?', 2), key;
-      [eve, key]=eve.trim().split('!', 2); src=src.trim();
-
+      let [eve, src] = soundFx.trim().split('?', 2), key, vol;
+      [eve, key]=eve.trim().split('!', 2); 
+      [src, vol]=src.trim().split('%', 2);
       ele.addEventListener(eve, (e) => {
         e.stopPropagation();
         if (eve.substring(0,3) === 'key' && key && e.key !== key) return;
-        this.play(src, ele.getAttribute('nsfx-vol'), e);
+        this.play(src, vol ?? ele.getAttribute('nsfx-vol'), e);
       });
     });
   });
@@ -57,7 +57,8 @@ nullsfx.prototype.play = function(src, vol=null, e=null) {
   let sfx = this.audioEles[src].cloneNode();
   console.log('sfx added');
   sfx.currentTime = 0;
-  sfx.volume = vol ?? 1;
+  sfx.volume = parseFloat(vol) ?? 1;
+  console.log(vol, sfx.volume);
   sfx.play();
 
   sfx.addEventListener('ended', handleEnded);
