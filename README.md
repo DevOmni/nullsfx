@@ -22,7 +22,9 @@ A easy to use lite weight script/lib to play sounds manually or when some even o
 
 ```txt
 Note:
-the key corresponding to each source path in sfx_list should not contain any space or any special symbol other than "_" & "-" and should strictly be in lower case.
+the key corresponding to each source path in sfx_list should not contain any 
+space or any special symbol other than "_" & "-" and should strictly be in 
+lower case.
 ```
 
 ### Juicy Stuff
@@ -40,8 +42,11 @@ Attribute: "nsfx"
         nsfx="keyup!f?audio3" (checks for key up event of key "f")
 
     note:
-        1. In key events the specific to check for (the "key") should be from the values of event.key object 
-        2. To set Volume of any audio specifically just put the amount of volume between 1 to 0 (float) after %. If not set then default value will be value of nsfx-vol and it is also not set then default volume is 1.
+        1. In key events the specific to check for (the "key") should be from the
+        values of event.key object 
+        2. To set Volume of any audio specifically just put the amount of volume 
+        between 1 to 0 (float) after %. If not set then default value will be 
+        value of nsfx-vol and it is also not set then default volume is 1.
         example: nsfx="event?audio%0.6" or nsfx="event?audio%1"
 
 Attribute: "nsfx-vol"
