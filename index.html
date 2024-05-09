@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="shortcut icon" href="/nullsfx/assests/favicon.png" type="image/x-icon">
+  
+  <title>nULLsFx</title>
+
+  <style>
+    body {
+      font-family: monospace;
+      color: white; background-color: black;
+    }
+
+    input[type="reset"], input[type="submit"], input[type="search"], button, [role="button"] {
+      cursor: pointer;
+    }
+
+    ul {
+      display: inline-flex;
+      flex-direction: column;
+      width: fit-content;
+      border: 1px solid white;
+    }
+    ul > li {
+      cursor: default;
+      width: fit-content;
+      list-style: none;
+      padding: 1px 2px; margin-top: 2px;
+      border: 1px solid white;
+      font-size: 16px; 
+      transition-duration: .2s;
+      &:hover {
+        font-size: 24px;
+      }
+    }
+
+    pre {
+      border: 1px solid white;
+      word-break: normal;
+      text-wrap: balance;
+    }
+
+    #source {
+      border: 1px solid white;
+      padding: 2px;
+      
+    }
+    span {
+      display: inline-block;
+      border: 1px solid white;
+      width: 80px; height: 30px;
+      text-align: center;
+      margin: 2px;
+    }
+    
+    #keypress {
+      border: 1px solid white;
+      width: 200px; height: 160px;
+    }
+  </style>
+
+</head>
+<body nsfx="keydown!G?nani" nsfx-vol="0.4">
+  
+  <pre>
+    ...
+    &lt;body nsfx="keydown!G?nani" nsfx-vol="0.4"&gt;
+    ...
+
+    <script defer>
+      window.addEventListener('DOMContentLoaded', domOnloaded)
+      function domOnloaded () {
+        let pre = document.querySelector('pre');
+        pre.insertAdjacentText('beforeend', document.getElementById('source').innerHTML);
+      }
+    </script>
+  </pre>
+
+  <div id="source">
+    <button nsfx="click?click" nsfx-vol="0.5">click</button>
+    <button nsfx="mouseleave?wasted" nsfx-vol="0.5">wasted</button>
+    <button nsfx="click?kwak" nsfx-vol="0.5">kwak</button>
+    <button nsfx="click?censor" nsfx-vol="0.5">beep</button>
+    <button nsfx="mousedown?amongus" nsfx-vol="0.2">amongus</button>
+    <button nsfx="mouseup?iphone" nsfx-vol="0.5">tududeng</button>
+    <button nsfx="mousedown?splat;mouseup?epic" nsfx-vol="0.5">BOTH</button>
+    <br />
+
+    <button id="custom">cUSTOM</button>
+
+    <span role="button" nsfx="mouseenter?nani" nsfx-vol="0.5">enter</span>
+    <input type="text" placeholder="nani!!!" nsfx="input?nani" nsfx-vol="0.5">
+    <br />
+
+    <textarea name="indeed" cols="40" rows="10" nsfx="mousemove?epic" nsfx-vol="0.5">
+      hmm hmm hmmm hmmmmmmmm
+    </textarea>
+    
+    <ul>
+      ITEMS:
+      <li nsfx="mouseenter?tititik" nsfx-vol="0.3">dang</li>
+      <li nsfx="mouseenter?tititik" nsfx-vol="0.3">daem</li>
+      <li nsfx="mouseenter?tititik" nsfx-vol="0.3">damn</li>
+      <li nsfx="mouseenter?tititik" nsfx-vol="0.3">deng</li>
+    </ul>
+
+    <textarea id="keypress" nsfx="keydown!A?epic" nsfx-vol="0.4">
+      IDK IDK 
+      just press key
+    </textarea>
+
+    <script src="nullsfx.js"></script>
+    <script type="text/javascript">
+      let yo = {
+        "bomb": "/nullsfx/sfx/Bomb.wav",
+        "epic": "/nullsfx/sfx/Epic.wav",
+        "wasted": "/nullsfx/sfx/Wasted.wav",
+        "iphone": "/nullsfx/sfx/iPhone (+Reverb).wav",
+        "nani": "/nullsfx/sfx/Metal Gear Alert_ Sound Effect(MP3_160K)_1.mp3",
+        "splat": "/nullsfx/sfx/Splat - Gaming Sound Effect (HD)(MP3_128K)_1.mp3",
+        "teleport": "/nullsfx/sfx/Teleport Sound Effect(MP3_320K).mp3",
+        "click": "/nullsfx/sfx/Mouse Click - Sound Effect (HD)(MP3_160K)_1.mp3",
+        "magic": "/nullsfx/sfx/Magic.wav",
+        "kwak": "/nullsfx/sfx/Duck Quack - Sound Effect (HD)(MP3_160K)_1.mp3",
+        "dbz": "/nullsfx/sfx/Dragon Ball.wav",
+        "censor": "/nullsfx/sfx/Censorship.wav",
+        "bed": "/nullsfx/sfx/Bed Squeak.mp3",
+        "angel": "/nullsfx/sfx/Angelic Voice.wav",
+        "amongus": "/nullsfx/sfx/Among Us.mp3",
+        "audience": "/nullsfx/sfx/Audience.wav",
+        "tititik": "/nullsfx/sfx/Tik Tik Sound Effect By Techno.mp3"
+      }
+      
+      let mysfxer = new nullsfx(yo);
+      
+      document.getElementById('custom').addEventListener('click', (e) => {
+        mysfxer.play('audience', 0.6)
+      });
+    </script>
+    <!-- <script type="text/javascript" src="main.js"></script> -->
+  </div>
+</body>
+</html>
