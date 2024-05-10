@@ -51,7 +51,7 @@ nullsfx.prototype.init = function() {
   });
 }
 
-nullsfx.prototype.play = function(src, vol=null, e=null) {
+nullsfx.prototype.play = function(src, vol=null) {
   
   let sfx = this.audioEles[src].cloneNode();
   // console.log('sfx added');
