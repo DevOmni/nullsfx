@@ -1,4 +1,4 @@
-function nullsfx(sfx_list) {
+export default function nullsfx(sfx_list) {
   // console.log('nullsfx');
 
   this.sfx_list = sfx_list;
