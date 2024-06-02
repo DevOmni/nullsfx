@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="docs for nullsfx js lib/script">
+  <meta name="og:title" content="nULLsFx" />
+  <meta name="og:description" content="docs for nullsfx js lib/script" />
+  <meta name="og:url" content="https://devomni.github.io/nullsfx/" />
+  
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+
+  <title>nULLsFx - Playlist</title>
+
+  <link rel="shortcut icon" href="/nullsfx/assests/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="plist">
+
+  <main id="playlist">
+    <fieldset class="player">
+      <legend>Track</legend>
+      <div class="conwrap">
+        <div class="controls">
+          <button onclick="plist.previous();">&lt;</button>
+          <button onclick="handlePP(event);">play</button>
+          <button onclick="plist.next();">&gt;</button>
+          <button onclick="plist.loop = !plist.loop;this.innerText = plist.loop ? 'loop ~':'loop';">loop</button>
+        </div>
+        <small id="current-track">0</small>
+      </div>
+      
+      <script src="nullsfx.js"></script>
+      <!-- <script type="text/javascript" src="main.js"></script> -->
+      <script type="text/javascript">
+        let playlist = [
+          "/nullsfx/playlist/amnesia.mp3",
+          "/nullsfx/playlist/new_tank.mp3",
+          "/nullsfx/playlist/riot.mp3",
+          "/nullsfx/playlist/ur_final_msg.mp3",
+          "/nullsfx/playlist/urban_ddpat.mp3",
+          "/nullsfx/playlist/without_me.mp3",
+        ]
+        
+        let sfxer = new nullsfx(),
+        plist = sfxer.playTheList(playlist);
+
+        /* let playerEle = document.querySelector('div.player');
+        playerEle.appendChild(plist); */
+        
+        function handlePP(e=null) {
+          if (e) e.target.innerText = plist.paused ? 'pause':'play';
+          (plist.paused ? plist.playIt():plist.pauseIt());
+        }
+
+        let trackTitle = document.querySelector('.player > legend'),
+            trackNumber = document.getElementById('current-track');
+        plist.onTrackChange = handleTrackChange;
+        function handleTrackChange() {
+          trackTitle.textContent = plist.playlist[plist.currentTrack];
+          trackNumber.textContent = `${plist.currentTrack+1}/${plist.playlist.length}`;
+        }
+        handleTrackChange();
+      </script>
+    </fieldset>
+  </main>
+
+</body>
+</html>

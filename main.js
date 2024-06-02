@@ -21,5 +21,5 @@ let yo = {
 let mysfxer = new nullsfx(yo);
 
 document.getElementById('custom').addEventListener('click', (e) => {
-  mysfxer.play('audience', 0.6)
+  mysfxer.play('audience', 0.6);
 });
